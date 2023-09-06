@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cmd-args-example
+spec:
+  selector:
+    matchLabels:
+      app: cmd-args-example
+  template:
+    metadata:
+      labels:
+        app: cmd-args-example
+    spec:
+      containers:
+        - name: add2numbers
+          image: raje/add2numbers
+          command: [ "java", "org.raj.nola.AddTwoNumbers" ]
+          args: [ "10", "20" ]
